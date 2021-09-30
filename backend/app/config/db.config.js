@@ -1,3 +1,3 @@
 module.exports = {
-    url: "mogodb://localhost:27017/housing_data?readPreference=primary&directConnection=true&ssl=false"
+    url: "mongodb://localhost:27017/housing_data?readPreference=primary&directConnection=true&ssl=false"
 }
