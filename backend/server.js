@@ -18,7 +18,7 @@ const db = require("./app/models")
 db.mongoose
     .connect(db.url, {
         useNewUrlParser: true,
-        usUnifiedTopology: true
+        useUnifiedTopology: true
     })
     .then(() => {
         console.log("connected to database");
