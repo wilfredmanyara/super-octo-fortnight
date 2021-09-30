@@ -23,5 +23,9 @@
   "bugs": {
     "url": "https://github.com/DataDeveloper7865/hearth/issues"
   },
-  "homepage": "https://github.com/DataDeveloper7865/hearth#readme"
+  "homepage": "https://github.com/DataDeveloper7865/hearth#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
 }
