@@ -1,0 +1,27 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "backend for hearth interview",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataDeveloper7865/hearth.git"
+  },
+  "keywords": [
+    "git",
+    "hearth",
+    "frontend",
+    "backend",
+    "redfin"
+  ],
+  "author": "Stephen Whelan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DataDeveloper7865/hearth/issues"
+  },
+  "homepage": "https://github.com/DataDeveloper7865/hearth#readme"
+}
