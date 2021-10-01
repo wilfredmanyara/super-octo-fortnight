@@ -39,6 +39,29 @@ class HomesApi {
         return res;
     }
 
+    /** Get the current user */
+
+    static async getCurrentUser(username) {
+        let res = await this.request(`api/users/${username}`);
+        console.log("Data from server", res);
+        return res;
+    }
+
+    /** Get the token for login from username and password */
+
+    static async login(data) {
+        let res = await this.request(`auth/token`, data, "post");
+        return res.token;
+    }
+
+    /** Signup for the site */
+
+    static async signup(data) {
+        let res = await this.request(`auth/register`, data, "post");
+        return res.token;
+    }
+
+
 }
 
 export default HomesApi;
