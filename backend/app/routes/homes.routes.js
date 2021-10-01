@@ -6,5 +6,8 @@ module.exports = app => {
     //Retrieve All Houses
     router.get("/", homes.findAll);
 
+    //Post to A Home
+    router.post("/", homes.create);
+
     app.use("/api/homes", router);
 }
