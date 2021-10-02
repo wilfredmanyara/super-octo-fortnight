@@ -73,3 +73,19 @@ exports.authenticate = async (req, res, next) => {
     next(new NotFoundError());
 
 }
+
+exports.getAllUsers = async (req, res, next) => {
+    console.log("inside get all users controller")
+}
+
+exports.getAUser = async (req, res, next) => {
+    console.log("inside get a user controller")
+}
+
+exports.updateAUser = async (req, res, next) => {
+    console.log("inside update a user controller")
+}
+
+exports.removeAUser = async (req, res, next) => {
+    console.log("inside remove a user controller")
+}
