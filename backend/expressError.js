@@ -1,5 +1,5 @@
 
-
+"use strict";
 
 class ExpressError extends Error {
     constructor(message, status) {
