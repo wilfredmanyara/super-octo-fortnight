@@ -27,7 +27,8 @@ app.use(authenticateJWT)
 require("./app/routes/auth.routes")(app);
 // app.use("/homes", homesRoutes);
 require("./app/routes/homes.routes")(app);
-app.use("/users", usersRoutes);
+require("./app/routes/users.routes")(app);
+// app.use("/users", usersRoutes);
 
 const db = require("./app/models")
 db.mongoose
