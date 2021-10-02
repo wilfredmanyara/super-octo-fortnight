@@ -55,6 +55,7 @@ exports.create = (req, res) => {
 
 //find all homes in DB
 exports.findAll = (req, res) => {
+    console.log("MADE IT TO FIND ALL HOMES CONTROLLER")
     const address = req.query.address;
     var condition = address ? {address: { $regex: new RegExp(address), $options: "i"}} : {};
 
