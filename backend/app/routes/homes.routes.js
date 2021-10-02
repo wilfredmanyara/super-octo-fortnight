@@ -1,5 +1,6 @@
 module.exports = app => {
     const homes = require("../controllers/homes.controllers.js");
+    // const { ensureCorrectUserOrAdmin, ensureAdmin } = require("../middleware/auth");
 
     var router = require("express").Router();
 
