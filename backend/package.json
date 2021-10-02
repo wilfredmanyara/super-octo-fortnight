@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/DataDeveloper7865/hearth#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "colors": "^1.4.0",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
