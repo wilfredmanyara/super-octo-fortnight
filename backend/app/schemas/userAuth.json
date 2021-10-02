@@ -3,7 +3,7 @@
     "$id": "http://example.com/userAuth.json",
     "type": "object",
     "properties": {
-      "username": {
+      "email": {
         "type": "string"
       },
       "password": {
@@ -12,7 +12,7 @@
     },
     "additionalProperties": false,
     "required": [
-      "username",
+      "email",
       "password"
     ]
   }
