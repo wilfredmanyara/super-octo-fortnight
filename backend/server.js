@@ -4,9 +4,9 @@ const cors = require("cors");
 const { NotFoundError } = require("./expressError");
 
 const { authenticateJWT } = require("./app/middleware/auth");
-const authRoutes = require("./routes/auth.routes.js");
-const homesRoutes = require("./routes/homes.routes.js")
-const usersRoutes = require("./routes/users.routes.js")
+const authRoutes = require("./app/routes/auth.routes.js");
+const homesRoutes = require("./app/routes/homes.routes.js")
+const usersRoutes = require("./app/routes/users.routes.js")
 
 const morgan = require("morgan");
 
