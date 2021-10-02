@@ -59,22 +59,17 @@ exports.authenticate = async (req, res, next) => {
         email: email
     });
 
-
-    try {
-        if(user) {
-            const isValid = await bcrypt.compare(password, user.password)
-            if (isValid === true) {
-                delete user[password];
-                const token = createToken(user);
-                return res.status(200).json({ token });
-            } else {
-                throw new UnauthorizedError("Invalid username/password");
-            }
+    if(user) {
+        const isValid = await bcrypt.compare(password, user.password)
+        if (isValid === true) {
+            delete user[password];
+            const token = createToken(user);
+            return res.status(200).json({ token });
+        } else {
+            next(new UnauthorizedError());
         }
-    } catch (error) {
-        //TO DO: NEED TO HANDLE ERROR!
-        throw new UnauthorizedError("Invalid username/password");
     }
 
+    next(new NotFoundError());
 
 }
