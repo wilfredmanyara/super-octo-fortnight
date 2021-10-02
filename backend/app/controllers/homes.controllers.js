@@ -1,9 +1,9 @@
 const db = require("../models");
 const Homes = db.Homes;
 
-//Create a New Home
+// Create a New Home
 exports.create = (req, res) => {
-    //validate address
+
     if (!req.body.address) {
         res.status(400).send({message: "You must include an address"})
         return;
@@ -53,9 +53,9 @@ exports.create = (req, res) => {
         });
 };
 
-//find all homes in DB
+// Find all homes in Database
 exports.findAll = (req, res) => {
-    console.log("MADE IT TO FIND ALL HOMES CONTROLLER")
+
     const address = req.query.address;
     var condition = address ? {address: { $regex: new RegExp(address), $options: "i"}} : {};
 
