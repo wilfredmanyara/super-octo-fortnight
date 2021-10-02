@@ -16,6 +16,8 @@ const { createToken } = require("../helpers/token");
 //Create a New User
 exports.create = async (req, res) => {
 
+    //TODO: ADD CHECK IF USER ALREADY REGISTERED VIA EMAIL
+
     const validator = jsonschema.validate(req.body, userRegisterSchema);
     if (!validator.valid) {
         const errs = validator.errors.map(e => e.stack);
@@ -75,7 +77,11 @@ exports.authenticate = async (req, res, next) => {
 }
 
 exports.getAllUsers = async (req, res, next) => {
-    console.log("inside get all users controller")
+
+    let users = await Users.find();
+
+    return res.json({ users });
+
 }
 
 exports.getAUser = async (req, res, next) => {
