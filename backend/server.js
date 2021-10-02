@@ -4,8 +4,8 @@ const cors = require("cors");
 const { NotFoundError } = require("./expressError");
 
 const { authenticateJWT } = require("./app/middleware/auth");
-const authRoutes = require("./app/routes/auth.routes.js");
-const homesRoutes = require("./app/routes/homes.routes.js")
+// const authRoutes = require("./app/routes/auth.routes.js");
+// const homesRoutes = require("./app/routes/homes.routes.js")
 const usersRoutes = require("./app/routes/users.routes.js")
 
 const morgan = require("morgan");
@@ -23,8 +23,10 @@ app.use(morgan("tiny"))
 app.use(authenticateJWT)
 
 //register routes
-app.use("/auth", authRoutes);
-app.use("/homes", homesRoutes);
+// app.use("/auth", authRoutes);
+require("./app/routes/auth.routes")(app);
+// app.use("/homes", homesRoutes);
+require("./app/routes/homes.routes")(app);
 app.use("/users", usersRoutes);
 
 const db = require("./app/models")
@@ -46,7 +48,6 @@ app.use(function (req, res, next) {
     return next(new NotFoundError());
 });
 
-// require("./app/routes/homes.routes")(app);
 
 // Generic Error Handler
 app.use(function (err, req, res, next) {
