@@ -13,11 +13,11 @@ The following list shows the resources available for the backend
 
 <h5> Users Endpoint </h5>
 
-CREATE A USER (MUST BE ADMIN USER) - POST -  http://localhost:8080/api/users 
-GET ALL USERS (MUST BE ADMIN USER)  - GET -  http://localhost:8080/api/users
-GET A USER BY EMAIL (MUST BE ADMIN USER OR OWN ACCOUNT) - GET -  http://localhost:8080/api/users/:email
-UPDATE A USER BY EMAIL (MUST BE ADMIN USER OR OWN ACCOUNT) - PATCH -  http://localhost:8080/api/users/:email
-DELETE A USER BY EMAIL (MUST BE ADMIN USER OR OWN ACCOUNT) - DELETE -  http://localhost:8080/api/users/:email
+<p> CREATE A USER (MUST BE ADMIN USER) - POST -  http://localhost:8080/api/users  </p>
+<p> GET ALL USERS (MUST BE ADMIN USER)  - GET -  http://localhost:8080/api/users </p>
+<p> GET A USER BY EMAIL (MUST BE ADMIN USER OR OWN ACCOUNT) - GET -  http://localhost:8080/api/users/:email </p>
+<p> UPDATE A USER BY EMAIL (MUST BE ADMIN USER OR OWN ACCOUNT) - PATCH -  http://localhost:8080/api/users/:email </p>
+<p> DELETE A USER BY EMAIL (MUST BE ADMIN USER OR OWN ACCOUNT) - DELETE -  http://localhost:8080/api/users/:email </p>
 
 <h5> Homes Endpoint </h5>
 
