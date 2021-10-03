@@ -23,7 +23,6 @@ This repo contains two folders: front-end & back-end.
     <li> Run npm i to download all dependencies</li>
     <li> Run seed.js to seed the data into the database</li>
     <li> Run 'npm start' to run the server</li>
-    <li> </li>
 </ol>
 
 <h4> FrontEnd </h4>
