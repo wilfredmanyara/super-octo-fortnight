@@ -86,6 +86,23 @@ exports.getAllUsers = async (req, res, next) => {
 
 exports.getAUser = async (req, res, next) => {
     console.log("inside get a user controller")
+
+    let email = req.params.email
+
+    console.log("Email to find is: ")
+    console.log(email)
+
+
+    let user = await Users.find({
+        email: email
+    })
+
+    if (user.length > 0) {
+        delete user.password;
+        return res.status(200).json({ user });
+    }
+
+    next(new NotFoundError());
 }
 
 exports.updateAUser = async (req, res, next) => {
@@ -94,4 +111,6 @@ exports.updateAUser = async (req, res, next) => {
 
 exports.removeAUser = async (req, res, next) => {
     console.log("inside remove a user controller")
+
+    
 }
