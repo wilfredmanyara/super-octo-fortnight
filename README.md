@@ -11,7 +11,7 @@ This repo contains two folders: front-end & back-end.
 
 The following list shows the resources available for the backend
 
-<h5> Users Endpoint </h5>
+<h4> Users Endpoint </h4>
 
 <p> CREATE A USER (MUST BE ADMIN USER) - POST -  http://localhost:8080/api/users  </p>
 <p> GET ALL USERS (MUST BE ADMIN USER)  - GET -  http://localhost:8080/api/users </p>
@@ -19,12 +19,12 @@ The following list shows the resources available for the backend
 <p> UPDATE A USER BY EMAIL (MUST BE ADMIN USER OR OWN ACCOUNT) - PATCH -  http://localhost:8080/api/users/:email </p>
 <p> DELETE A USER BY EMAIL (MUST BE ADMIN USER OR OWN ACCOUNT) - DELETE -  http://localhost:8080/api/users/:email </p>
 
-<h5> Homes Endpoint </h5>
+<h4> Homes Endpoint </h4>
 
 GET ALL HOMES - GET -  http://localhost:8080/api/homes
 CREATE NEW HOME ENTRY - POST -  http://localhost:8080/api/homes
 
-<h5> Auth Endpoint </h5>
+<h4> Auth Endpoint </h4>
 
 AUTHENTICATE A USER - POST - http://localhost:8080/api/auth/token
 REGISTER A USER - POST - http://localhost:8080/api/auth/register
