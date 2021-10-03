@@ -21,13 +21,13 @@ The following list shows the resources available for the backend
 
 <h4> Homes Endpoint </h4>
 
-GET ALL HOMES - GET -  http://localhost:8080/api/homes
-CREATE NEW HOME ENTRY - POST -  http://localhost:8080/api/homes
+<p> GET ALL HOMES - GET -  http://localhost:8080/api/homes </p>
+<p> CREATE NEW HOME ENTRY - POST -  http://localhost:8080/api/homes </p>
 
 <h4> Auth Endpoint </h4>
 
-AUTHENTICATE A USER - POST - http://localhost:8080/api/auth/token
-REGISTER A USER - POST - http://localhost:8080/api/auth/register
+<p> AUTHENTICATE A USER - POST - http://localhost:8080/api/auth/token </p>
+<p> REGISTER A USER - POST - http://localhost:8080/api/auth/register </p>
 
 <h3> QuickStart Steps </h3>
 
