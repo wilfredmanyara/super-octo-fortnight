@@ -50,7 +50,7 @@ export default function SignIn({ login }) {
 
     console.log("RESULT IS", result)
     if (result.success) {
-      history.push("/");
+      history.push("/dashboard");
     } else {
       console.log("Error Logging In");
       setFormErrors(result.errors);
