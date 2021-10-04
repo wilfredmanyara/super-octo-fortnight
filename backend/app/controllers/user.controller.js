@@ -14,14 +14,14 @@ const jsonschema = require("jsonschema");
 const { createToken } = require("../helpers/token");
 
 //Create a New User
-exports.create = async (req, res) => {
+exports.create = async (req, res, next) => {
 
     //TODO: ADD CHECK IF USER ALREADY REGISTERED VIA EMAIL
 
     const validator = jsonschema.validate(req.body, userRegisterSchema);
     if (!validator.valid) {
         const errs = validator.errors.map(e => e.stack);
-        throw new BadRequestError(errs);
+        return next(new BadRequestError(errs));
     }
 
     let hashedPassword = await bcrypt.hash(req.body.password, BCRYPT_WORK_FACTOR);
@@ -32,8 +32,8 @@ exports.create = async (req, res) => {
                 email: req.body.email,
                 password: hashedPassword,
                 isAdmin: false
-    })
-    const token = createToken(newUser)
+    });
+    const token = createToken(newUser);
 
     newUser.save(newUser)
         .then(data => {
