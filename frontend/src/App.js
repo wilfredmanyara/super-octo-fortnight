@@ -20,10 +20,10 @@ function App() {
     async function getCurrentUser() {
       if (token) {
         try {
-          let { username } = jwt.decode(token);
 
+          let { email } = jwt.decode(token);
           HomesApi.token = token;
-          let currentUser = await HomesApi.getCurrentUser(username);
+          let currentUser = await HomesApi.getCurrentUser(email);
           setCurrentUser(currentUser);
         } catch (err) {
           console.log("error: ", err);
