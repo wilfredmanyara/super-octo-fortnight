@@ -5,6 +5,8 @@ const MongoClient = require('mongodb').MongoClient;
 const url = "mongodb://localhost:27017/";
 const bcrypt = require("bcrypt");
 const { BCRYPT_WORK_FACTOR } = require("./config.js");
+const db = require("./app/models");
+const Homes = db.Homes;
 
 //Read in housing data
 fs.createReadStream('redfin_data.csv')
@@ -15,8 +17,10 @@ fs.createReadStream('redfin_data.csv')
         MongoClient.connect(url, function(err, db) {
             if (err) throw err;
             var dbo = db.db("hearth");
-            var myObj = row;
-            dbo.collection("housing_data").insertOne(myObj, function (err, res) {
+            var homeToInsert = new Homes(row);
+
+            // console.log(homeToInsert);
+            dbo.collection("houses").insertOne(homeToInsert, function (err, res) {
                 if (err) throw err;
                 console.log("1 document inserted");
                 db.close();
