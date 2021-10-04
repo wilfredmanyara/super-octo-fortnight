@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -10,6 +11,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useHistory } from 'react-router';
+import Alert from '../common/Alert';
 
 // NOTE: MATERIAL UI TEMPLATE TAKEN FROM TEMPLATE PROVIDED BY MATERIAL UI
 // FOUND HERE: https://github.com/mui-org/material-ui/blob/next/docs/src/pages/getting-started/templates/sign-in-side/SignInSide.js
@@ -29,16 +32,31 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function SignUp() {
-  const handleSubmit = (event) => {
+export default function SignUp({ signup }) {
+  const history = useHistory();
+  const [formErrors, setFormErrors] = useState([]);
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     // eslint-disable-next-line no-console
-    console.log({
+    let dataToSend = {
+      firstName: data.get('firstName'),
+      lastName: data.get('lastName'),
       email: data.get('email'),
-      password: data.get('password'),
-    });
+      password: data.get('password')
+    };
+
+    let result = await signup(dataToSend);
+    if (result.success) {
+      history.push("/")
+    } else {
+      console.log("Error logging in");
+      setFormErrors(result.errors);
+    }
+
   };
+
 
   return (
     <ThemeProvider theme={theme}>
@@ -121,6 +139,11 @@ export default function SignUp() {
           </Box>
         </Box>
         <Copyright sx={{ mt: 5 }} />
+          {
+            formErrors.length
+              ? <Alert type="danger" messages={formErrors} />
+              : null
+          }
       </Container>
     </ThemeProvider>
   );
