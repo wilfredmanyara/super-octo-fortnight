@@ -1,9 +1,10 @@
 import React from "react";
 import { Switch, Route, Redirect } from 'react-router-dom';
-import HomesList from "../homes/homesList";
+import HomesList from "../components/homes/homesList";
 import SignUp from "../auth/SignUp";
 import SignIn from "../auth/SignIn";
 import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../components/Dashboard";
 
 function Routes({ login, signup }) {
 
@@ -21,7 +22,7 @@ function Routes({ login, signup }) {
                 </Route>
 
                 <PrivateRoute exact path="/">
-                    <HomesList />
+                    <Dashboard />
                 </PrivateRoute>
 
                 <Redirect to="/login" />
