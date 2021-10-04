@@ -20,7 +20,7 @@ function Routes({ login, signup, logout }) {
                     <SignUp signup={signup} />
                 </Route>
 
-                <PrivateRoute exact path="/">
+                <PrivateRoute exact path="/dashboard">
                     <Dashboard logout={logout}/>
                 </PrivateRoute>
 
