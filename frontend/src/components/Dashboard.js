@@ -16,10 +16,12 @@ import Paper from '@mui/material/Paper';
 import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import { mainListItems, secondaryListItems } from './ListItems';
+import { mainListItems } from './ListItems';
 import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
+import HomesApi from '../api/api';
+import LoadingSpinner from '../common/LoadingSpinner';
 
 function Copyright(props) {
   return (
@@ -84,6 +86,29 @@ const mdTheme = createTheme();
 
 function DashboardContent({logout}) {
   const [open, setOpen] = React.useState(true);
+  const [houseData, setHouseData] = useState([]);
+  const [infoLoaded, setInfoLoaded] = useState(false);
+
+  React.useEffect(function loadHouseData() {
+
+    async function getHouseData() {
+      try {
+        let data = await HomesApi.getAllHomes();
+        console.log(data);
+        setHouseData(data);
+      } catch (err) {
+        console.log("error fetching data: ", err);
+
+      }
+      setInfoLoaded(true);
+    }
+    setInfoLoaded(false);
+    getHouseData();
+  }, [])
+
+  if (!infoLoaded) return <LoadingSpinner />
+
+
   const toggleDrawer = () => {
     setOpen(!open);
   };
@@ -142,8 +167,8 @@ function DashboardContent({logout}) {
           </Toolbar>
           <Divider />
           <List>{mainListItems}</List>
-          <Divider />
-          <List>{secondaryListItems}</List>
+          {/* <Divider />
+          <List>{secondaryListItems}</List> */}
         </Drawer>
         <Box
           component="main"
