@@ -54,7 +54,7 @@ function App() {
 
   async function login(loginData) {
     try {
-      let token = HomesApi.login(loginData);
+      let token = await HomesApi.login(loginData);
       setToken(token);
       return { success: true };
     } catch (errors) {
@@ -70,7 +70,7 @@ function App() {
       <UserContext.Provider
           value={{ currentUser, setCurrentUser }}>
         <div className="App">
-          <Navigation logout={logout} />
+          {/* <Navigation logout={logout} /> */}
           <Routes login={login} signup={signup} />
         </div>
       </UserContext.Provider>
