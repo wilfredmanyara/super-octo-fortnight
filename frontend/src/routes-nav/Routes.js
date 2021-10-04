@@ -6,7 +6,7 @@ import SignIn from "../auth/SignIn";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../components/Dashboard";
 
-function Routes({ login, signup }) {
+function Routes({ login, signup, logout }) {
 
     return (
         <div>
@@ -22,7 +22,7 @@ function Routes({ login, signup }) {
                 </Route>
 
                 <PrivateRoute exact path="/">
-                    <Dashboard />
+                    <Dashboard logout={logout}/>
                 </PrivateRoute>
 
                 <Redirect to="/login" />
