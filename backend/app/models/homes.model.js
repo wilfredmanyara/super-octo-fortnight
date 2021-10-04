@@ -42,6 +42,6 @@ module.exports = mongoose => {
             return object;
         })
 
-    const Homes = mongoose.model("Homes", schema);
+    const Homes = mongoose.model("housing_data", schema);
     return Homes;
 }
