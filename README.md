@@ -52,7 +52,7 @@ The following list shows the resources available for the backend
     <li> cd into frontend/</li>
     <li> Run npm i to download all dependencies</li>
     <li> Run 'npm start' to run frontend</li>
-    <li> Login User the Test account email and password</li>
+    <li> Login using the admin account email and password</li>
 </ol>
 
 
