@@ -7,7 +7,7 @@ class HomesApi {
 
     //General request Method
     static async request(endpoint, data = {}, method = "get") {
-        console.log("API Call:", endpoint, data, method);
+        // console.log("API Call:", endpoint, data, method);
 
         const url = `${BASE_URL}/${endpoint}`;
         const headers = { Authorization: `Bearer ${HomesApi.token}`};
@@ -28,7 +28,6 @@ class HomesApi {
 
     static async getAllHomes() {
         let res = await this.request(`api/homes`);
-        console.log("Data from server", res);
         return res;
     }
 
@@ -36,7 +35,6 @@ class HomesApi {
 
     static async postAHome(data) {
         let res = await this.request(`api/homes`, data, "post");
-        console.log("Data from server", res);
         return res;
     }
 
@@ -44,14 +42,12 @@ class HomesApi {
 
     static async getCurrentUser(username) {
         let res = await this.request(`api/users/${username}`);
-        console.log("Data from server", res);
         return res;
     }
 
     /** Get the token for login from username and password */
 
     static async login(data) {
-        console.log("data sent is: ", data)
         let res = await this.request(`api/auth/token`, data, "post");
         return res.token;
     }
