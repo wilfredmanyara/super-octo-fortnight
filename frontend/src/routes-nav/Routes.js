@@ -24,6 +24,10 @@ function Routes({ login, signup, logout }) {
                     <Dashboard logout={logout}/>
                 </PrivateRoute>
 
+                <PrivateRoute exact path="/home-list">
+                    <Dashboard logout={logout}/>
+                </PrivateRoute>
+
                 <Redirect to="/login" />
 
             </Switch>
