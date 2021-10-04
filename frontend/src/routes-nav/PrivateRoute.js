@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Router, Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import UserContext from '../auth/UserContext';
 
 // Higher order component for checking if user is logged in.
