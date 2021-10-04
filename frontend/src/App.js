@@ -71,7 +71,7 @@ function App() {
           value={{ currentUser, setCurrentUser }}>
         <div className="App">
           {/* <Navigation logout={logout} /> */}
-          <Routes login={login} signup={signup} />
+          <Routes login={login} signup={signup} logout={logout}/>
         </div>
       </UserContext.Provider>
     </BrowserRouter>
