@@ -119,9 +119,8 @@ function DashboardContent({logout}) {
             >
               Hearth Dashboard
             </Typography>
-            <IconButton color="inherit">
+            <IconButton onClick={logout} color="inherit">
               <Avatar
-                onClick={logout}
               >
                 H
               </Avatar>
