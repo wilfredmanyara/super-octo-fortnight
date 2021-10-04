@@ -41,7 +41,7 @@ The following list shows the resources available for the backend
 <ol> 
     <li> cd into backend/</li>
     <li> Run 'npm i' to download all dependencies</li>
-    <li> Run 'node seed.js' to seed the data into the database</li>
+    <li> Run 'npm seed' to seed the data into the database</li>
     <li> Run 'npm start' to run the server</li>
 </ol>
 
