@@ -14,7 +14,7 @@ fs.createReadStream('redfin_data.csv')
         // Call mongoclient and insert
         MongoClient.connect(url, function(err, db) {
             if (err) throw err;
-            var dbo = db.db("test2");
+            var dbo = db.db("hearth");
             var myObj = row;
             dbo.collection("housing_data").insertOne(myObj, function (err, res) {
                 if (err) throw err;
@@ -27,7 +27,7 @@ fs.createReadStream('redfin_data.csv')
         console.log('CSV file has been processed')
     });
 
-//Read in User data
+// Read in User data
 fs.createReadStream('user_data.csv')
     .pipe(csv())
     .on('data', (row) => {
@@ -35,7 +35,7 @@ fs.createReadStream('user_data.csv')
         // Call mongoclient and insert
         MongoClient.connect(url, async function(err, db) {
             if (err) throw err;
-            var dbo = db.db("test2");
+            var dbo = db.db("hearth");
             var myObj = row;
             myObj.password = await bcrypt.hash(myObj.password, BCRYPT_WORK_FACTOR)
             myObj.isAdmin = true
