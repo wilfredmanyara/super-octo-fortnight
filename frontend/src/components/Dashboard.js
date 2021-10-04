@@ -84,7 +84,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 const mdTheme = createTheme();
 
-function DashboardContent() {
+function DashboardContent({logout}) {
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -122,7 +122,11 @@ function DashboardContent() {
               Hearth Dashboard
             </Typography>
             <IconButton color="inherit">
-              <Avatar>H</Avatar>
+              <Avatar
+                onClick={logout}
+              >
+                H
+              </Avatar>
             </IconButton>
           </Toolbar>
         </AppBar>
@@ -200,6 +204,6 @@ function DashboardContent() {
   );
 }
 
-export default function Dashboard() {
-  return <DashboardContent />;
+export default function Dashboard({logout}) {
+  return <DashboardContent logout={logout}/>;
 }
