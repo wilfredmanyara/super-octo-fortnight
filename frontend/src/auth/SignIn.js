@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -14,6 +15,7 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useHistory } from 'react-router-dom';
 import LoadingSpinner from '../common/LoadingSpinner';
+import Alert from '../common/Alert';
 
 // NOTE: MATERIAL UI TEMPLATE TAKEN FROM TEMPLATE PROVIDED BY MATERIAL UI
 // FOUND HERE: https://github.com/mui-org/material-ui/blob/next/docs/src/pages/getting-started/templates/sign-in-side/SignInSide.js
@@ -23,7 +25,7 @@ function Copyright(props) {
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Hearth
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -34,18 +36,22 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignIn({ login }) {
+  const history = useHistory();
   const [formErrors, setFormErrors] = useState([]);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     // eslint-disable-next-line no-console
-    console.log({
+    let dataToSend = {
       email: data.get('email'),
-      password: data.get('password'),
-    });
+      password: data.get('password')
+    }
 
-    let result = await login(data)
+
+    let result = await login(dataToSend)
+
+    console.log("RESULT IS", result)
     if (result.success) {
       history.push("/");
     } else {
@@ -109,10 +115,6 @@ export default function SignIn({ login }) {
                 id="password"
                 autoComplete="current-password"
               />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
               <Button
                 type="submit"
                 fullWidth
@@ -123,9 +125,9 @@ export default function SignIn({ login }) {
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <Link href="#" variant="body2">
+                  {/* <Link href="#" variant="body2">
                     Forgot password?
-                  </Link>
+                  </Link> */}
                 </Grid>
                 <Grid item>
                   <Link href="/signup" variant="body2">
