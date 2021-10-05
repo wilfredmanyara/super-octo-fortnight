@@ -3,7 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import SignUp from "../auth/SignUp";
 import SignIn from "../auth/SignIn";
 import PrivateRoute from "./PrivateRoute";
-import Dashboard from "../components/Dashboard";
+import Dashboard from "../components/dashboard/Dashboard";
 
 function Routes({ login, signup, logout }) {
 
