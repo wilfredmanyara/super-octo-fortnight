@@ -8,19 +8,22 @@ function preventDefault(event) {
   event.preventDefault();
 }
 
-export default function Deposits() {
+export default function Deposits(data) {
+
+  let today = new Date();
+
   return (
     <React.Fragment>
-      <Title>Recent Deposits</Title>
+      <Title>Number Of Listings</Title>
       <Typography component="p" variant="h4">
-        $3,024.00
+        {data.data.length}
       </Typography>
       <Typography color="text.secondary" sx={{ flex: 1 }}>
-        on 15 March, 2019
+        as of {today.toLocaleDateString()}
       </Typography>
       <div>
-        <Link color="primary" href="#" onClick={preventDefault}>
-          View balance
+        <Link color="primary" href="https://www.redfin.com/city/17151/CA/San-Francisco" onClick={preventDefault}>
+          View More Houses
         </Link>
       </div>
     </React.Fragment>
