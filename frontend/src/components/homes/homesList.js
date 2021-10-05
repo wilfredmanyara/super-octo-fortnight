@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import HomeCard from './homeCard';
+import HomeCard from './HomeCard';
 import { Grid, Typography } from '@mui/material';
 import { Paper } from '@mui/material';
-import Title from '../Title';
+import Title from '../../common/Title';
 import Input from '@mui/material/Input';
 import Link from '@mui/material/Link';
 
 function HomesList(data) {
 
-    const [startData, setStartData] = useState(data.data)
+    const [startData] = useState(data.data)
     const [filteredData, setFilteredData] = useState([]);
     const [curAddressSearch, setCurAddressSearch] = useState("");
 
