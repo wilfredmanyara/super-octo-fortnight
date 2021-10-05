@@ -20,7 +20,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { mainListItems } from './ListItems';
 import Chart from './Chart';
 import ListingCount from './ListingCount';
-import Orders from './Orders';
+import HousingPagination from './HousingPagination';
 import HomesApi from '../api/api';
 import LoadingSpinner from '../common/LoadingSpinner';
 
@@ -215,7 +215,7 @@ function DashboardContent({logout}) {
               {/* Recent Orders */}
               <Grid item xs={12}>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                  <Orders data={houseData}/>
+                  <HousingPagination data={houseData}/>
                 </Paper>
               </Grid>
             </Grid>
