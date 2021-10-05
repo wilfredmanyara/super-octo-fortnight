@@ -85,14 +85,9 @@ exports.getAllUsers = async (req, res, next) => {
 }
 
 exports.getAUser = async (req, res, next) => {
-    console.log("inside get a user controller")
 
     let email = req.params.email
-
-    console.log("Email to find is: ")
-    console.log(email)
-
-
+    
     let user = await Users.find({
         email: email
     })
