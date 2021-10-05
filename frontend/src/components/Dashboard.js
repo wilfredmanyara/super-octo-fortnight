@@ -13,7 +13,6 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
 import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
@@ -23,6 +22,8 @@ import ListingCount from './ListingCount';
 import HousingPagination from './HousingPagination';
 import HomesApi from '../api/api';
 import LoadingSpinner from '../common/LoadingSpinner';
+import { useLocation } from 'react-router-dom';
+import HomesList from './homes/HomesList';
 
 function Copyright(props) {
   return (
@@ -86,6 +87,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 const mdTheme = createTheme();
 
 function DashboardContent({logout}) {
+  const location = useLocation();
   const [open, setOpen] = useState(true);
   const [houseData, setHouseData] = useState([]);
   const [infoLoaded, setInfoLoaded] = useState(false);
@@ -95,7 +97,6 @@ function DashboardContent({logout}) {
     async function getHouseData() {
       try {
         let data = await HomesApi.getAllHomes();
-        console.log(data);
         setHouseData(data);
       } catch (err) {
         console.log("error fetching data: ", err);
@@ -168,8 +169,6 @@ function DashboardContent({logout}) {
           </Toolbar>
           <Divider />
           <List>{mainListItems}</List>
-          {/* <Divider />
-          <List>{secondaryListItems}</List> */}
         </Drawer>
         <Box
           component="main"
@@ -185,41 +184,20 @@ function DashboardContent({logout}) {
         >
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+          {location.pathname === '/dashboard'
+            ?
             <Grid container spacing={3}>
               {/* Chart */}
-              <Grid item xs={12} md={8} lg={9}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 500,
-                  }}
-                >
-                  <Chart data={houseData}/>
-                </Paper>
-              </Grid>
+              <Chart data={houseData}/>
+              {/* # Listings */}
+              <ListingCount data={houseData} />
               {/* Recent Listings */}
-              <Grid item xs={12} md={4} lg={3}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 500,
-                  }}
-                >
-                  <ListingCount data={houseData} />
-                </Paper>
-              </Grid>
-              {/* Recent Orders */}
-              <Grid item xs={12}>
-                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                  <HousingPagination data={houseData}/>
-                </Paper>
-              </Grid>
+              <HousingPagination data={houseData}/>
             </Grid>
-            <Copyright sx={{ pt: 4 }} />
+          :
+            <HomesList data={houseData}/>
+          }
+          <Copyright sx={{ pt: 4 }} />
           </Container>
         </Box>
       </Box>
