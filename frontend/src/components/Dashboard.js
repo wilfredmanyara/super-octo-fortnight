@@ -19,7 +19,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { mainListItems } from './ListItems';
 import Chart from './Chart';
-import Deposits from './Deposits';
+import ListingCount from './ListingCount';
 import Orders from './Orders';
 import HomesApi from '../api/api';
 import LoadingSpinner from '../common/LoadingSpinner';
@@ -199,7 +199,7 @@ function DashboardContent({logout}) {
                   <Chart data={houseData}/>
                 </Paper>
               </Grid>
-              {/* Recent Deposits */}
+              {/* Recent Listings */}
               <Grid item xs={12} md={4} lg={3}>
                 <Paper
                   sx={{
@@ -209,7 +209,7 @@ function DashboardContent({logout}) {
                     height: 500,
                   }}
                 >
-                  <Deposits data={houseData} />
+                  <ListingCount data={houseData} />
                 </Paper>
               </Grid>
               {/* Recent Orders */}
