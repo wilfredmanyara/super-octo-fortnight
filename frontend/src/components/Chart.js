@@ -26,10 +26,23 @@ export default function Chart(data) {
             dataKey="time"
             stroke={theme.palette.text.secondary}
             style={theme.typography.body2}
-          />
+          >
+            <Label
+              position="center"
+              style={{
+                textAnchor: 'middle',
+                fill: theme.palette.text.primary,
+                ...theme.typography.body1,
+              }}
+            >
+              Homes In Dataset
+            </Label>
+            </XAxis>
           <YAxis
             stroke={theme.palette.text.secondary}
             style={theme.typography.body2}
+            domain={[0,4000000]}
+            tickFormatter={val => val.toLocaleString()}
           >
             <Label
               angle={270}
@@ -37,13 +50,13 @@ export default function Chart(data) {
               style={{
                 textAnchor: 'middle',
                 fill: theme.palette.text.primary,
-                ...theme.typography.body1,
+                ...theme.typography.body1
               }}
             >
-              Price (in USD) ($)
+              Price 
             </Label>
           </YAxis>
-          <Bar dataKey="price" fill="#8884d8" />
+          <Bar dataKey="price" fill={theme.palette.primary.dark}/>
         </BarChart>
       </ResponsiveContainer>
     </React.Fragment>
