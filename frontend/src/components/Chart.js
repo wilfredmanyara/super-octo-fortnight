@@ -1,34 +1,20 @@
 import * as React from 'react';
 import { useTheme } from '@mui/material/styles';
-import { LineChart, Line, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
 import Title from './Title';
 
-// Generate Sales Data
-function createData(time, amount) {
-  return { time, amount };
-}
 
-const data = [
-  createData('00:00', 0),
-  createData('03:00', 300),
-  createData('06:00', 600),
-  createData('09:00', 800),
-  createData('12:00', 1500),
-  createData('15:00', 2000),
-  createData('18:00', 2400),
-  createData('21:00', 2400),
-  createData('24:00', undefined),
-];
-
-export default function Chart() {
+export default function Chart(data) {
   const theme = useTheme();
+
+  console.log("DATA IN CHART", data.data)
 
   return (
     <React.Fragment>
-      <Title>Today</Title>
+      <Title>Housing Prices</Title>
       <ResponsiveContainer>
-        <LineChart
-          data={data}
+        <BarChart
+          data={data.data}
           margin={{
             top: 16,
             right: 16,
@@ -54,17 +40,11 @@ export default function Chart() {
                 ...theme.typography.body1,
               }}
             >
-              Sales ($)
+              Price (in USD) ($)
             </Label>
           </YAxis>
-          <Line
-            isAnimationActive={false}
-            type="monotone"
-            dataKey="amount"
-            stroke={theme.palette.primary.main}
-            dot={false}
-          />
-        </LineChart>
+          <Bar dataKey="price" fill="#8884d8" />
+        </BarChart>
       </ResponsiveContainer>
     </React.Fragment>
   );
