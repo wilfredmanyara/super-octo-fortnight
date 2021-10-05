@@ -47,8 +47,6 @@ export default function SignIn({ login }) {
 
 
     let result = await login(dataToSend)
-
-    console.log("RESULT IS", result)
     if (result.success) {
       history.push("/dashboard");
     } else {
