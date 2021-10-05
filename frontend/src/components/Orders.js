@@ -6,74 +6,41 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Title from './Title';
+import HouseIcon from '@mui/icons-material/House'
 
-// Generate Order Data
-function createData(id, date, name, shipTo, paymentMethod, amount) {
-  return { id, date, name, shipTo, paymentMethod, amount };
-}
-
-const rows = [
-  createData(
-    0,
-    '16 Mar, 2019',
-    'Elvis Presley',
-    'Tupelo, MS',
-    'VISA ⠀•••• 3719',
-    312.44,
-  ),
-  createData(
-    1,
-    '16 Mar, 2019',
-    'Paul McCartney',
-    'London, UK',
-    'VISA ⠀•••• 2574',
-    866.99,
-  ),
-  createData(2, '16 Mar, 2019', 'Tom Scholz', 'Boston, MA', 'MC ⠀•••• 1253', 100.81),
-  createData(
-    3,
-    '16 Mar, 2019',
-    'Michael Jackson',
-    'Gary, IN',
-    'AMEX ⠀•••• 2000',
-    654.39,
-  ),
-  createData(
-    4,
-    '15 Mar, 2019',
-    'Bruce Springsteen',
-    'Long Branch, NJ',
-    'VISA ⠀•••• 5919',
-    212.79,
-  ),
-];
 
 function preventDefault(event) {
   event.preventDefault();
 }
 
-export default function Orders() {
+export default function Orders(data) {
   return (
     <React.Fragment>
-      <Title>Recent Orders</Title>
+      <Title>Recent Listings</Title>
       <Table size="small">
         <TableHead>
           <TableRow>
-            <TableCell>Date</TableCell>
-            <TableCell>Name</TableCell>
-            <TableCell>Ship To</TableCell>
-            <TableCell>Payment Method</TableCell>
-            <TableCell align="right">Sale Amount</TableCell>
+            <TableCell>Address</TableCell>
+            <TableCell># Beds</TableCell>
+            <TableCell># Baths</TableCell>
+            <TableCell>Square Feet</TableCell>
+            <TableCell>Listing</TableCell>
+            <TableCell align="right">Price</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.id}>
-              <TableCell>{row.date}</TableCell>
-              <TableCell>{row.name}</TableCell>
-              <TableCell>{row.shipTo}</TableCell>
-              <TableCell>{row.paymentMethod}</TableCell>
-              <TableCell align="right">{`$${row.amount}`}</TableCell>
+          {data.data.map((house) => (
+            <TableRow key={house.id}>
+              <TableCell>{house.address}</TableCell>
+              <TableCell>{house.beds}</TableCell>
+              <TableCell>{house.baths}</TableCell>
+              <TableCell>{house.squareFeet}</TableCell>
+              <TableCell>
+                <Link color="primary" href={house.url}> 
+                  <HouseIcon />
+                </Link>
+              </TableCell>
+              <TableCell align="right">{`$${house.price}`}</TableCell>
             </TableRow>
           ))}
         </TableBody>
