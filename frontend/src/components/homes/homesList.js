@@ -1,32 +1,96 @@
-import React, { useState, useEffect } from 'react';
-import LoadingSpinner from '../../common/LoadingSpinner';
-import HomesApi from "../../api/api";
+import React, { useState } from 'react';
 import HomeCard from './homeCard';
+import { Grid, Typography } from '@mui/material';
+import { Paper } from '@mui/material';
+import Title from '../Title';
+import Input from '@mui/material/Input';
+import Link from '@mui/material/Link';
 
-function HomesList() {
+function HomesList(data) {
 
-    const [homes, setHomes] = useState(null);
+    const [startData, setStartData] = useState(data.data)
+    const [filteredData, setFilteredData] = useState([]);
+    const [curAddressSearch, setCurAddressSearch] = useState("");
 
-    useEffect(() => {
-        async function getHomes() {
-            console.log("Getting Companies Now...");
-            let homesToAdd = await HomesApi.getAllHomes();
-            setHomes(homesToAdd);
-        }
-        getHomes()
-    }, []);
-
-    if (!homes) return <LoadingSpinner />
+    function handleSearchInput(evt) {
+        let search = evt.target.value;
+        setCurAddressSearch(search);
+        let tempFilteredData = startData.filter(
+            house => house.address.toLowerCase().startsWith(search.toLowerCase())
+        )
+        setFilteredData(tempFilteredData);
+    }
 
     return(
-        <div>
-            <h1>Home List Below</h1>
-            {
-                homes.map(home => (
-                    <HomeCard home={home} />
-                ))
-            }
-        </div>
+        <Grid container spacing={3}>
+            <Grid item xs={12} md={12} lg={12}>
+                <Paper
+                        sx={{
+                        p: 2,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center'
+                        }}
+                    >
+                        <Title
+                            style={{
+                                justifyContent: 'center'
+                            }}
+                        >Search By Address</Title>
+                    <Input 
+                        style={{
+                            textAlign: "left",
+                            border: 0,
+                            outline: 0,
+                            background: 'transparent',
+                            width: "100%"
+                        }}
+                        type="search" 
+                        id="form1" 
+                        className="form-control" 
+                        placeholder="Search By Address - Click Item To Go To Listing"
+                        aria-label="Search" 
+                        onChange={(e) => handleSearchInput(e)}
+                    />
+                </Paper>
+            </Grid>
+            <Grid item xs={12} md={12} lg={12}>
+                <Paper
+                    sx={{
+                    p: 2,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center'
+                    }}
+                >
+                        <Title
+                            style={{
+                                justifyContent: 'center'
+                            }}
+                        >Filtered Homes By Address
+                        </Title>
+                        {filteredData.length === 0 || curAddressSearch === ""
+                            ?
+                            <Typography> 
+                                No Homes To Show. Please Modify Your Search.
+                            </Typography>
+                            :
+                            filteredData.map((home, idx) => (
+                                <Link 
+                                    href={home.url} 
+                                    underline='none'
+                                    style={{
+                                        width: '100%'
+                                    }}
+                                    key={home.id}
+                                >
+                                    <HomeCard key={idx} home={home} />
+                                </Link>
+                            ))
+                        }
+                </Paper>
+            </Grid>
+        </Grid>
     )
 }
 
