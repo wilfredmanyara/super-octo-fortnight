@@ -53,7 +53,7 @@ export default function Chart(data) {
                 ...theme.typography.body1
               }}
             >
-              Price 
+              
             </Label>
           </YAxis>
           <Bar dataKey="price" fill={theme.palette.primary.dark}/>
