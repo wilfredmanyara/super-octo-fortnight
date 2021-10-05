@@ -5,6 +5,7 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import { TablePagination } from '@mui/material';
 import Title from './Title';
 import HouseIcon from '@mui/icons-material/House'
 
@@ -14,10 +15,28 @@ function preventDefault(event) {
 }
 
 export default function Orders(data) {
+
+  function handleChangePage() {
+    console.log('handle change page invoked')
+  }
+
+  function handleChangeRowsPerPage() {
+    console.log("rows per change page clicked")
+  }
+
+
   return (
     <React.Fragment>
       <Title>Recent Listings</Title>
-      <Table size="small">
+      {/* <Table size="small"> */}
+      <TablePagination
+        component="div"
+        count={10}
+        page={0} 
+        onPageChange={handleChangePage}
+        rowsPerPage={15}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+      >
         <TableHead>
           <TableRow>
             <TableCell>Address</TableCell>
@@ -44,9 +63,10 @@ export default function Orders(data) {
             </TableRow>
           ))}
         </TableBody>
-      </Table>
-      <Link color="primary" href="#" onClick={preventDefault} sx={{ mt: 3 }}>
-        See more orders
+      </TablePagination>
+      {/* </Table> */}
+      <Link color="primary" href="https://www.redfin.com/city/17151/CA/San-Francisco" onClick={preventDefault} sx={{ mt: 3 }}>
+        View More Homes On Redfin
       </Link>
     </React.Fragment>
   );
