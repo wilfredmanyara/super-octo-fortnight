@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 import Avatar from '@mui/material/Avatar'
 import CssBaseline from '@mui/material/CssBaseline';
@@ -85,7 +86,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 const mdTheme = createTheme();
 
 function DashboardContent({logout}) {
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = useState(true);
   const [houseData, setHouseData] = useState([]);
   const [infoLoaded, setInfoLoaded] = useState(false);
 
@@ -192,10 +193,10 @@ function DashboardContent({logout}) {
                     p: 2,
                     display: 'flex',
                     flexDirection: 'column',
-                    height: 240,
+                    height: 500,
                   }}
                 >
-                  <Chart />
+                  <Chart data={houseData}/>
                 </Paper>
               </Grid>
               {/* Recent Deposits */}
@@ -205,16 +206,16 @@ function DashboardContent({logout}) {
                     p: 2,
                     display: 'flex',
                     flexDirection: 'column',
-                    height: 240,
+                    height: 500,
                   }}
                 >
-                  <Deposits />
+                  <Deposits data={houseData} />
                 </Paper>
               </Grid>
               {/* Recent Orders */}
               <Grid item xs={12}>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                  <Orders />
+                  <Orders data={houseData}/>
                 </Paper>
               </Grid>
             </Grid>
