@@ -18,7 +18,7 @@ export const mainListItems = (
       <ListItemIcon>
         <LayersIcon />
       </ListItemIcon>
-      <ListItemText primary="Home List" />
+      <ListItemText primary="Search Homes" />
     </ListItem>
   </div>
 );
