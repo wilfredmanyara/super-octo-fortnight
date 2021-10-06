@@ -25,18 +25,20 @@ function HomesList(data) {
         <Grid container spacing={3}>
             <Grid item xs={12} md={12} lg={12}>
                 <Paper
-                        sx={{
-                        p: 2,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center'
+                    sx={{
+                    p: 2,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center'
+                    }}
+                >
+                    <Title
+                        style={{
+                            justifyContent: 'center'
                         }}
                     >
-                        <Title
-                            style={{
-                                justifyContent: 'center'
-                            }}
-                        >Search By Address</Title>
+                        Search By Address
+                    </Title>
                     <Input 
                         style={{
                             textAlign: "left",
@@ -63,35 +65,35 @@ function HomesList(data) {
                     alignItems: 'center'
                     }}
                 >
-                        <Title
-                            style={{
-                                justifyContent: 'center'
-                            }}
-                        >Filtered Homes By Address
-                        </Title>
-                        {filteredData.length === 0 || curAddressSearch === ""
-                            ?
-                            <Typography> 
-                                No Homes To Show. Please Modify Your Search.
-                            </Typography>
-                            :
-                            filteredData.map((home, idx) => (
-                                <Link 
-                                    href={home.url} 
-                                    underline='none'
-                                    style={{
-                                        width: '100%'
-                                    }}
-                                    key={home.id}
-                                >
-                                    <HomeCard key={idx} home={home} />
-                                </Link>
-                            ))
-                        }
+                    <Title
+                        style={{
+                            justifyContent: 'center'
+                        }}
+                    >Filtered Homes By Address
+                    </Title>
+                    {filteredData.length === 0 || curAddressSearch === ""
+                        ?
+                        <Typography> 
+                            No Homes To Show. Please Modify Your Search.
+                        </Typography>
+                        :
+                        filteredData.map((home, idx) => (
+                            <Link 
+                                href={home.url} 
+                                underline='none'
+                                style={{
+                                    width: '100%'
+                                }}
+                                key={home.id}
+                            >
+                                <HomeCard key={idx} home={home} />
+                            </Link>
+                        ))
+                    }
                 </Paper>
             </Grid>
         </Grid>
     )
-}
+};
 
 export default HomesList;
