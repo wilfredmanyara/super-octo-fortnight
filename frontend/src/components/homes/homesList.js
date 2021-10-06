@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import HomeCard from './HomeCard';
+import HomeCard from './homeCard';
 import { Grid, Typography } from '@mui/material';
 import { Paper } from '@mui/material';
 import Title from '../../common/Title';
