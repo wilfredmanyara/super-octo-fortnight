@@ -59,13 +59,13 @@ The following list shows the resources available for the backend
 
 <ol> 
     <li> To log into app ensure the database has been seeded</li>
-    <li> Enter admin@gmail.com into email address</li>
-    <li> Enter password into password field</li>
+    <li> Enter 'admin@gmail.com' into email address</li>
+    <li> Enter 'password' into password field</li>
 </ol>
 
 <h4> Logging Out Of App </h4>
 <ol> 
-    <li> To log out of the application click the H avatar in the upper right corner of app</li>
+    <li> To log out of the application click the 'H' avatar in the upper right corner of app</li>
 </ol>
 
 
