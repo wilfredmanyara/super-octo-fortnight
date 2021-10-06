@@ -39,7 +39,7 @@ The following list shows the resources available for the backend
 
 <h4> BackEnd </h4>
 <ol> 
-    <li> cd into backend/</li>
+    <li> cd into backend/ in a shell</li>
     <li> Run 'npm i' to download all dependencies</li>
     <li> Run 'npm start' to run the server and initialize the model in the database</li>
     <li> stop server by running command ^C</li>
@@ -49,7 +49,7 @@ The following list shows the resources available for the backend
 
 <h4> FrontEnd </h4>
 <ol> 
-    <li> cd into frontend/</li>
+    <li> in a separate shell cd into frontend/</li>
     <li> Run npm i to download all dependencies</li>
     <li> Run 'npm start' to run frontend</li>
     <li> Login using the admin account email and password</li>
