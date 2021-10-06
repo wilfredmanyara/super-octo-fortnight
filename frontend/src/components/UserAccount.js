@@ -131,25 +131,25 @@ function UserAccount() {
               </Grid>
             </Grid>
             {editUser ? (
-                <>
-                  <Button
-                    type="submit"
-                    fullWidth
-                    variant="contained"
-                    sx={{ mt: 3, mb: 2 }}
-                  >
-                    Submit My Info
-                  </Button>
-                  <Button
-                    fullWidth
-                    variant="contained"
-                    sx={{ mt: 3, mb: 2 }}
-                    onClick={handleEditInfo}
-                    color="error"
-                  >
-                    Cancel
-                  </Button>
-                </>
+              <>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2 }}
+                >
+                  Submit My Info
+                </Button>
+                <Button
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2 }}
+                  onClick={handleEditInfo}
+                  color="error"
+                >
+                  Cancel
+                </Button>
+              </>
             ) : (
               <Button
                 type="submit"
