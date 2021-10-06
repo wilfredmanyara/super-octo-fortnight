@@ -4,6 +4,8 @@ import SignUp from "../auth/SignUp";
 import SignIn from "../auth/SignIn";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../components/dashboard/Dashboard";
+import HomeContent from "../components/dashboard/HomeContent";
+import HomesList from "../components/homes/homesList";
 
 function Routes({ login, signup, logout }) {
   return (
@@ -18,11 +20,15 @@ function Routes({ login, signup, logout }) {
         </Route>
 
         <PrivateRoute exact path="/dashboard">
-          <Dashboard logout={logout} />
+          <Dashboard logout={logout}>
+            <HomeContent />
+          </Dashboard>
         </PrivateRoute>
 
         <PrivateRoute exact path="/home-list">
-          <Dashboard logout={logout} />
+          <Dashboard logout={logout}>
+            <HomesList />
+          </Dashboard>
         </PrivateRoute>
 
         <Redirect to="/login" />
