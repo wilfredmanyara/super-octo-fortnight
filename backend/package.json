@@ -6,7 +6,8 @@
   "scripts": {
     "test": "test",
     "start": "node server.js",
-    "seed": "node seed.js"
+    "seed": "node seed.js",
+    "format": "npx prettier --write ."
   },
   "repository": {
     "type": "git",
