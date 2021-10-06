@@ -1,25 +1,24 @@
-
 const { ensureCorrectUserOrAdmin, ensureAdmin } = require("../middleware/auth");
 
-module.exports = app => {
-    const users = require("../controllers/user.controller.js");
+module.exports = (app) => {
+  const users = require("../controllers/user.controller.js");
 
-    var router = require("express").Router();
+  var router = require("express").Router();
 
-    // Admin creation of a user
-    router.post("/", ensureAdmin, users.create);
+  // Admin creation of a user
+  router.post("/", ensureAdmin, users.create);
 
-    // Admin get all users
-    router.get("/", ensureAdmin, users.getAllUsers);
+  // Admin get all users
+  router.get("/", ensureAdmin, users.getAllUsers);
 
-    // Get a single user
-    router.get("/:email", ensureCorrectUserOrAdmin, users.getAUser);
+  // Get a single user
+  router.get("/:email", ensureCorrectUserOrAdmin, users.getAUser);
 
-    // Update A User
-    router.patch("/:username", ensureCorrectUserOrAdmin, users.updateAUser);
+  // Update A User
+  router.patch("/:username", ensureCorrectUserOrAdmin, users.updateAUser);
 
-    // Register a user during SignUp
-    router.delete("/:username", ensureCorrectUserOrAdmin, users.removeAUser);
+  // Register a user during SignUp
+  router.delete("/:username", ensureCorrectUserOrAdmin, users.removeAUser);
 
-    app.use("/api/users", router);
-}
+  app.use("/api/users", router);
+};

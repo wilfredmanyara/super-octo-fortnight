@@ -1,14 +1,14 @@
-module.exports = app => {
-    const homes = require("../controllers/homes.controllers.js");
-    // const { ensureCorrectUserOrAdmin, ensureAdmin } = require("../middleware/auth");
+module.exports = (app) => {
+  const homes = require("../controllers/homes.controllers.js");
+  // const { ensureCorrectUserOrAdmin, ensureAdmin } = require("../middleware/auth");
 
-    var router = require("express").Router();
+  var router = require("express").Router();
 
-    //Retrieve All Houses
-    router.get("/", homes.findAll);
+  //Retrieve All Houses
+  router.get("/", homes.findAll);
 
-    //Post to A Home
-    router.post("/", homes.create);
+  //Post to A Home
+  router.post("/", homes.create);
 
-    app.use("/api/homes", router);
-}
+  app.use("/api/homes", router);
+};

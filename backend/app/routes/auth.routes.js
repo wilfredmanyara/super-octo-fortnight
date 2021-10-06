@@ -1,14 +1,13 @@
+module.exports = (app) => {
+  const users = require("../controllers/user.controller.js");
 
-module.exports = app => {
-    const users = require("../controllers/user.controller.js");
+  var router = require("express").Router();
 
-    var router = require("express").Router();
+  // Authenticate a User During Login
+  router.post("/token", users.authenticate);
 
-    // Authenticate a User During Login
-    router.post("/token", users.authenticate);
+  // Register a user during SignUp
+  router.post("/register", users.create);
 
-    // Register a user during SignUp
-    router.post("/register", users.create);
-
-    app.use("/api/auth", router);
-}
+  app.use("/api/auth", router);
+};
