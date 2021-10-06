@@ -1,10 +1,16 @@
-import * as React from 'react';
-import { useTheme } from '@mui/material/styles';
-import { BarChart, Bar, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
-import Title from '../../common/Title';
-import { Grid } from '@mui/material';
-import { Paper } from '@mui/material';
-
+import * as React from "react";
+import { useTheme } from "@mui/material/styles";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Label,
+  ResponsiveContainer,
+} from "recharts";
+import Title from "../../common/Title";
+import { Grid } from "@mui/material";
+import { Paper } from "@mui/material";
 
 export default function Chart(data) {
   const theme = useTheme();
@@ -14,8 +20,8 @@ export default function Chart(data) {
       <Paper
         sx={{
           p: 2,
-          display: 'flex',
-          flexDirection: 'column',
+          display: "flex",
+          flexDirection: "column",
           height: 500,
         }}
       >
@@ -39,33 +45,31 @@ export default function Chart(data) {
                 <Label
                   position="center"
                   style={{
-                    textAnchor: 'middle',
+                    textAnchor: "middle",
                     fill: theme.palette.text.primary,
                     ...theme.typography.body1,
                   }}
                 >
                   Homes In Dataset
                 </Label>
-                </XAxis>
+              </XAxis>
               <YAxis
                 stroke={theme.palette.text.secondary}
                 style={theme.typography.body2}
-                domain={[0,4000000]}
-                tickFormatter={val => val.toLocaleString()}
+                domain={[0, 4000000]}
+                tickFormatter={(val) => val.toLocaleString()}
               >
                 <Label
                   angle={270}
                   position="left"
                   style={{
-                    textAnchor: 'middle',
+                    textAnchor: "middle",
                     fill: theme.palette.text.primary,
-                    ...theme.typography.body1
+                    ...theme.typography.body1,
                   }}
-                >
-                  
-                </Label>
+                ></Label>
               </YAxis>
-              <Bar dataKey="price" fill={theme.palette.primary.dark}/>
+              <Bar dataKey="price" fill={theme.palette.primary.dark} />
             </BarChart>
           </ResponsiveContainer>
         </React.Fragment>

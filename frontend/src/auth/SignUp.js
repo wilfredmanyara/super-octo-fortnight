@@ -1,31 +1,36 @@
-import * as React from 'react';
-import { useState } from 'react';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useHistory } from 'react-router';
-import Alert from '../common/Alert';
+import * as React from "react";
+import { useState } from "react";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useHistory } from "react-router";
+import Alert from "../common/Alert";
 
 // NOTE: MATERIAL UI TEMPLATE TAKEN FROM TEMPLATE PROVIDED BY MATERIAL UI
 // FOUND HERE: https://github.com/mui-org/material-ui/blob/next/docs/src/pages/getting-started/templates/sign-in-side/SignInSide.js
 
 function Copyright(props) {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
+      {"Copyright © "}
       <Link color="inherit" href="https://material-ui.com/">
         Hearth
-      </Link>{' '}
+      </Link>{" "}
       {new Date().getFullYear()}
-      {'.'}
+      {"."}
     </Typography>
   );
 }
@@ -41,22 +46,20 @@ export default function SignUp({ signup }) {
     const data = new FormData(event.currentTarget);
     // eslint-disable-next-line no-console
     let dataToSend = {
-      firstName: data.get('firstName'),
-      lastName: data.get('lastName'),
-      email: data.get('email'),
-      password: data.get('password')
+      firstName: data.get("firstName"),
+      lastName: data.get("lastName"),
+      email: data.get("email"),
+      password: data.get("password"),
     };
 
     let result = await signup(dataToSend);
     if (result.success) {
-      history.push("/")
+      history.push("/");
     } else {
       console.log("Error logging in");
       setFormErrors(result.errors);
     }
-
   };
-
 
   return (
     <ThemeProvider theme={theme}>
@@ -65,18 +68,23 @@ export default function SignUp({ signup }) {
         <Box
           sx={{
             marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Box
+            component="form"
+            noValidate
+            onSubmit={handleSubmit}
+            sx={{ mt: 3 }}
+          >
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -139,11 +147,9 @@ export default function SignUp({ signup }) {
           </Box>
         </Box>
         <Copyright sx={{ mt: 5 }} />
-          {
-            formErrors.length
-              ? <Alert type="danger" messages={formErrors} />
-              : null
-          }
+        {formErrors.length ? (
+          <Alert type="danger" messages={formErrors} />
+        ) : null}
       </Container>
     </ThemeProvider>
   );

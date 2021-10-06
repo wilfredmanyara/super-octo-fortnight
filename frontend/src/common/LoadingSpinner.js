@@ -1,12 +1,8 @@
-import React from 'react';
-import "./LoadingSpinner.css"
+import React from "react";
+import "./LoadingSpinner.css";
 
 function LoadingSpinner() {
-    return (
-        <div className="LoadingSpinner">
-            Loading...
-        </div>
-    );
+  return <div className="LoadingSpinner">Loading...</div>;
 }
 
 export default LoadingSpinner;

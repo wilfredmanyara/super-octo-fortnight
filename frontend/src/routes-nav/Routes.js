@@ -1,39 +1,34 @@
 import React from "react";
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect } from "react-router-dom";
 import SignUp from "../auth/SignUp";
 import SignIn from "../auth/SignIn";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../components/dashboard/Dashboard";
 
 function Routes({ login, signup, logout }) {
+  return (
+    <div>
+      <Switch>
+        <Route exact path="/login">
+          <SignIn login={login} />
+        </Route>
 
-    return (
-        <div>
+        <Route exact path="/signup">
+          <SignUp signup={signup} />
+        </Route>
 
-            <Switch>
+        <PrivateRoute exact path="/dashboard">
+          <Dashboard logout={logout} />
+        </PrivateRoute>
 
-                <Route exact path="/login">
-                    <SignIn login={login} />
-                </Route>
+        <PrivateRoute exact path="/home-list">
+          <Dashboard logout={logout} />
+        </PrivateRoute>
 
-                <Route exact path="/signup">
-                    <SignUp signup={signup} />
-                </Route>
-
-                <PrivateRoute exact path="/dashboard">
-                    <Dashboard logout={logout} />
-                </PrivateRoute>
-
-                <PrivateRoute exact path="/home-list">
-                    <Dashboard logout={logout} />
-                </PrivateRoute>
-
-                <Redirect to="/login" />
-
-            </Switch>
-
-        </div>
-    )
+        <Redirect to="/login" />
+      </Switch>
+    </div>
+  );
 }
 
 export default Routes;

@@ -1,13 +1,11 @@
-   
-import * as React from 'react';
-import Link from '@mui/material/Link';
-import Typography from '@mui/material/Typography';
-import Title from '../../common/Title';
-import { Grid } from '@mui/material';
-import { Paper } from '@mui/material';
+import * as React from "react";
+import Link from "@mui/material/Link";
+import Typography from "@mui/material/Typography";
+import Title from "../../common/Title";
+import { Grid } from "@mui/material";
+import { Paper } from "@mui/material";
 
 export default function HouseCount(data) {
-
   let today = new Date();
 
   return (
@@ -15,8 +13,8 @@ export default function HouseCount(data) {
       <Paper
         sx={{
           p: 2,
-          display: 'flex',
-          flexDirection: 'column',
+          display: "flex",
+          flexDirection: "column",
           height: 500,
         }}
       >
@@ -28,7 +26,10 @@ export default function HouseCount(data) {
           <Typography color="text.secondary" sx={{ flex: 1 }}>
             as of {today.toLocaleDateString()}
           </Typography>
-          <Link color="primary" href="https://www.redfin.com/city/17151/CA/San-Francisco" >
+          <Link
+            color="primary"
+            href="https://www.redfin.com/city/17151/CA/San-Francisco"
+          >
             View More Houses
           </Link>
         </React.Fragment>
