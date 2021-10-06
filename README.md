@@ -43,7 +43,7 @@ The following list shows the resources available for the backend
     <li> Run 'npm i' to download all dependencies</li>
     <li> Run 'npm start' to run the server and initialize the model in the database</li>
     <li> stop server by running command ^C</li>
-    <li> Run 'npm seed' to seed the data into the database</li>
+    <li> Run 'npm run seed' to seed the data into the database</li>
     <li> Run 'npm start' again to run the server and now have data</li>
 </ol>
 
