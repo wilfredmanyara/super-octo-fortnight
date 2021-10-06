@@ -47,13 +47,13 @@ function UserAccount() {
       password: data.get("password"),
     };
 
-    // let result = await signup(dataToSend);
-    // if (result.success) {
-    //   history.push("/dashboard");
-    // } else {
-    //   console.log("Error logging in");
-    //   setFormErrors(result.errors);
-    // }
+    let result = await HomesApi.editUser(dataToSend);
+    if (result.success) {
+      setFormErrors(result.success);
+    } else {
+      console.log("Error logging in");
+      setFormErrors(result.errors);
+    }
   };
 
   function handleEditInfo(evt) {
@@ -74,7 +74,7 @@ function UserAccount() {
           }}
         >
           <Typography component="h1" variant="h5">
-            My Profile
+            My Account
           </Typography>
           <Box
             component="form"
