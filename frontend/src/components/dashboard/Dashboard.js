@@ -1,7 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
-import Avatar from "@mui/material/Avatar";
 import CssBaseline from "@mui/material/CssBaseline";
 import MuiDrawer from "@mui/material/Drawer";
 import Box from "@mui/material/Box";
@@ -14,6 +13,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import { mainListItems } from "../../routes-nav/ListItems";
+import UserProfileMenu from "../UserProfileMenu";
 
 const drawerWidth = 240;
 
@@ -101,9 +101,7 @@ function DashboardContent({ logout, children }) {
             >
               Hearth Dashboard
             </Typography>
-            <IconButton onClick={logout} color="inherit">
-              <Avatar>H</Avatar>
-            </IconButton>
+            <UserProfileMenu logout={logout} />
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>
