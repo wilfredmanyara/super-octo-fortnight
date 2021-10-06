@@ -58,6 +58,13 @@ class HomesApi {
     let res = await this.request(`api/auth/register`, data, "post");
     return res.token;
   }
+
+  /** Edit a User's data */
+
+  static async editUser(data) {
+    let res = await this.request(`api/users/${username}`, data, "patch");
+    return res;
+  }
 }
 
 export default HomesApi;
