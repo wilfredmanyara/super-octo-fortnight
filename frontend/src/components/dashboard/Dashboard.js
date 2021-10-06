@@ -23,7 +23,7 @@ import HousingPagination from './HousingPagination';
 import HomesApi from '../../api/api';
 import LoadingSpinner from '../../common/LoadingSpinner';
 import { useLocation } from 'react-router-dom';
-import HomesList from '../homes/HomesList';
+import HomesList from '../homes/homesList';
 
 function Copyright(props) {
   return (
