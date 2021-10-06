@@ -4,7 +4,6 @@ import Typography from '@mui/material/Typography';
 
 function HomeCard({home}) {
 
-
     return (
         <Card 
             sx={{
@@ -19,8 +18,7 @@ function HomeCard({home}) {
                 alignItems: 'center',
                 textAlign: 'center'
             }}
-        >
-            
+        >    
             <Typography 
                 gutterBottom 
                 variant="h5" 
