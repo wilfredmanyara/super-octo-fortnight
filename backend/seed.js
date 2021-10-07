@@ -8,7 +8,7 @@ const db = require("./app/models");
 const Homes = db.Homes;
 
 //Read in housing data
-fs.createReadStream("redfin_data.csv")
+fs.createReadStream("./seed_data/redfin_data.csv")
   .pipe(csv())
   .on("data", (row) => {
     // Call mongoclient and insert
@@ -30,7 +30,7 @@ fs.createReadStream("redfin_data.csv")
   });
 
 // Read in User data
-fs.createReadStream("user_data.csv")
+fs.createReadStream("./seed_data/user_data.csv")
   .pipe(csv())
   .on("data", (row) => {
     // Call mongoclient and insert
