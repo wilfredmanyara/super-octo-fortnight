@@ -9,6 +9,7 @@ import Alert from "../common/Alert";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Container } from "@mui/material";
 import { Button } from "@mui/material";
+import HomesApi from '../api/api'
 
 function Copyright(props) {
   return (
@@ -35,19 +36,13 @@ function UserAccount() {
 
   const [formErrors, setFormErrors] = useState([]);
   const [editUser, setEditUser] = useState(false);
+  const [formData, setFormData] = useState({...currentUser.user[0], password: ""})
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
     // eslint-disable-next-line no-console
-    let dataToSend = {
-      firstName: data.get("firstName"),
-      lastName: data.get("lastName"),
-      email: data.get("email"),
-      password: data.get("password"),
-    };
 
-    let result = await HomesApi.editUser(dataToSend);
+    let result = await HomesApi.editUser(formData);
     if (result.success) {
       setFormErrors(result.success);
     } else {
@@ -59,6 +54,14 @@ function UserAccount() {
   function handleEditInfo(evt) {
     evt.preventDefault();
     setEditUser(!editUser);
+  }
+
+  function handleChange(evt) {
+    const { name, value } = evt.target;
+    setFormData(fdata => ({
+      ...fdata,
+      [name]: value
+    }));
   }
 
   return (
@@ -91,7 +94,8 @@ function UserAccount() {
                   fullWidth
                   id="firstName"
                   disabled={!editUser}
-                  value={currentUser.user[0].firstName}
+                  value={formData.firstName}
+                  onChange={handleChange}
                   autoFocus
                 />
               </Grid>
@@ -102,7 +106,8 @@ function UserAccount() {
                   id="lastName"
                   name="lastName"
                   autoComplete="lname"
-                  value={currentUser.user[0].lastName}
+                  value={formData.lastName}
+                  onChange={handleChange}
                   disabled={!editUser}
                 />
               </Grid>
@@ -113,8 +118,8 @@ function UserAccount() {
                   id="email"
                   name="email"
                   autoComplete="email"
-                  value={currentUser.user[0].email}
-                  disabled={!editUser}
+                  value={formData.email}
+                  disabled={true}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -126,6 +131,8 @@ function UserAccount() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                  value={formData.password}
+                  onChange={handleChange}
                   disabled={!editUser}
                 />
               </Grid>
