@@ -15,10 +15,10 @@ module.exports = (app) => {
   router.get("/:email", ensureCorrectUserOrAdmin, users.getAUser);
 
   // Update A User
-  router.patch("/:username", ensureCorrectUserOrAdmin, users.updateAUser);
+  router.patch("/:email", ensureCorrectUserOrAdmin, users.updateAUser);
 
   // Register a user during SignUp
-  router.delete("/:username", ensureCorrectUserOrAdmin, users.removeAUser);
+  router.delete("/:email", ensureCorrectUserOrAdmin, users.removeAUser);
 
   app.use("/api/users", router);
 };
