@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:8080";
+const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
 class HomesApi {
   static token;
@@ -62,7 +62,9 @@ class HomesApi {
   /** Edit a User's data */
 
   static async editUser(data) {
-    let res = await this.request(`api/users/${username}`, data, "patch");
+    console.log("data sent to server in editUser API")
+    console.log(data)
+    let res = await this.request(`api/users/${data.email}`, data, "patch");
     return res;
   }
 }
