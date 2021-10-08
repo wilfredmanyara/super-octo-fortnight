@@ -3,6 +3,9 @@
     "$id": "http://example.com/example.json",
     "type": "object",
     "properties": {
+      "id": {
+        "type": "string"
+      },
       "password": {
         "type": "string",
         "minLength": 5,
@@ -28,6 +31,6 @@
         "type": "boolean"
       }
     },
-    "additionalProperties": false,
+    "additionalProperties": true,
     "required": ["firstName", "lastName", "password", "email"]
   }
