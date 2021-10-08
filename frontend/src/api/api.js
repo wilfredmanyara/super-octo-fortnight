@@ -62,8 +62,6 @@ class HomesApi {
   /** Edit a User's data */
 
   static async editUser(data) {
-    console.log("data sent to server in editUser API")
-    console.log(data)
     let res = await this.request(`api/users/${data.email}`, data, "patch");
     return res;
   }
