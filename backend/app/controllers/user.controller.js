@@ -8,6 +8,7 @@ const {
 } = require("../../expressError");
 const userRegisterSchema = require("../schemas/userRegister.json");
 const userAuthSchema = require("../schemas/userAuth.json");
+const userEditSchema = require("../schemas/userEdit.json");
 
 const { BCRYPT_WORK_FACTOR } = require("../../config.js");
 const jsonschema = require("jsonschema");
@@ -95,9 +96,38 @@ exports.getAUser = async (req, res, next) => {
 };
 
 exports.updateAUser = async (req, res, next) => {
-  console.log("inside update a user controller");
+
+  const validator = jsonschema.validate(req.body, userEditSchema);
+
+  if (!validator.valid) {
+    const errs = validator.errors.map((e) => e.stack);
+    throw new BadRequestError(errs);
+  }
+
+  let hashedPassword = await bcrypt.hash(req.body.password, BCRYPT_WORK_FACTOR);
+
+  Users
+    .updateOne({email: req.params.email}, {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      password: hashedPassword
+    })
+    .then((data) => {
+      res.status(201).send({ message: "user updated" });
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || "An error occured while creating user",
+      });
+    });
+ 
 };
 
 exports.removeAUser = async (req, res, next) => {
-  console.log("inside remove a user controller");
+
+  await Users.deleteOne({ email: req.params.email})
+  .then((data) => {
+    res.status(200).send({message: "sucessfully deleted"})
+  })
+
 };
