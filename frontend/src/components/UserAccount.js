@@ -10,6 +10,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Container } from "@mui/material";
 import { Button } from "@mui/material";
 import HomesApi from '../api/api'
+import { useHistory } from "react-router-dom";
 
 function Copyright(props) {
   return (
@@ -32,7 +33,9 @@ function Copyright(props) {
 const theme = createTheme();
 
 function UserAccount() {
+  const history = useHistory();
   const { currentUser } = useContext(UserContext);
+  const { setCurrentUser } = useContext(UserContext);
 
   const [formErrors, setFormErrors] = useState([]);
   const [editUser, setEditUser] = useState(false);
@@ -42,14 +45,25 @@ function UserAccount() {
     event.preventDefault();
     // eslint-disable-next-line no-console
 
-    let result = await HomesApi.editUser(formData);
-    if (result.success) {
-      setFormErrors(result.success);
+    let result = await callEditUser(formData);
+    if (result.sucess) {
+      history.push('/dashboard')
+      // setCurrentUser(result.user)
     } else {
       console.log("Error logging in");
       setFormErrors(result.errors);
     }
-  };
+  }
+
+  async function callEditUser(newData) {
+    try {
+      let result = await HomesApi.editUser(newData);
+      return { success: true, user: result }
+    } catch (errors) {
+      console.log("edit user failed", errors)
+      return { success: false, errors }
+    }
+  }
 
   function handleEditInfo(evt) {
     evt.preventDefault();
