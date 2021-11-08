@@ -3,9 +3,17 @@
 <h1> About </h1>
 
 This is a full-stack application that uses the MERN stack - React & material UI on front end and express.js and MongoDB on backend. Authentication & authorization
-middleware is run between the request / response cycle.
+middleware is run between the request / response cycle. 
+
+Mongoose library is used to interact with the backend and provide object document modeling (equivalent to ORM in relational database).
 
 This repo contains two folders: front-end & back-end.
+
+The Material UI templates can be found at: https://mui.com/getting-started/templates/
+React Docs can be found at: https://reactjs.org/docs/getting-started.html
+Node.js can be downloaded at: https://nodejs.org/en/download/
+Express.js docs can be found at: https://expressjs.com/
+MongoDB can be downloaded at: https://www.mongodb.com/try/download/community
 
 <h3> Backend Routes </h3>
 
