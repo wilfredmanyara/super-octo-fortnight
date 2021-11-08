@@ -7,7 +7,6 @@ import Dashboard from "../components/dashboard/Dashboard";
 import HomeContent from "../components/dashboard/HomeContent";
 import HomesList from "../components/homes/homesList";
 import UserAccount from "../components/account/UserAccount";
-import TrialSearch from "../components/trial-search/TrialSearch";
 import MyProfile from "../components/account/MyProfile";
 
 function Routes({ login, signup, logout }) {
@@ -43,12 +42,6 @@ function Routes({ login, signup, logout }) {
         <PrivateRoute exact path="/my-profile">
           <Dashboard logout={logout}>
             <MyProfile />
-          </Dashboard>
-        </PrivateRoute>
-
-        <PrivateRoute exact path="/search-trials">
-          <Dashboard logout={logout}>
-            <TrialSearch />
           </Dashboard>
         </PrivateRoute>
 
