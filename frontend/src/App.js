@@ -7,7 +7,7 @@ import jwt from "jsonwebtoken";
 import LoadingSpinner from "./common/LoadingSpinner";
 import Routes from "./routes-nav/Routes";
 
-export const TOKEN_STORAGE_ID = "hearth-token";
+export const TOKEN_STORAGE_ID = "app-token";
 
 function App() {
   const [infoLoaded, setInfoLoaded] = useState(false);
