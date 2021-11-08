@@ -14,7 +14,7 @@ fs.createReadStream("./seed_data/redfin_data.csv")
     // Call mongoclient and insert
     MongoClient.connect(url, function (err, db) {
       if (err) throw err;
-      var dbo = db.db("hearth");
+      var dbo = db.db("apptemplate");
       var homeToInsert = new Homes(row);
 
       // console.log(homeToInsert);
@@ -36,7 +36,7 @@ fs.createReadStream("./seed_data/user_data.csv")
     // Call mongoclient and insert
     MongoClient.connect(url, async function (err, db) {
       if (err) throw err;
-      var dbo = db.db("hearth");
+      var dbo = db.db("apptemplate");
       var myObj = row;
       myObj.password = await bcrypt.hash(myObj.password, BCRYPT_WORK_FACTOR);
       myObj.isAdmin = true;
