@@ -3,11 +3,11 @@ const cors = require("cors");
 const { NotFoundError } = require("./expressError");
 const { authenticateJWT } = require("./app/middleware/auth");
 const morgan = require("morgan");
-const db = require('./db')
+const db = require("./db");
 const app = express();
 
 var corsOptions = {
-    origin: "http://localhost:3000",
+  origin: "http://localhost:3000",
 };
 
 //register middleware
