@@ -1,7 +1,7 @@
-import react from "react";
+import React from "react";
 
 function MyProfile() {
-  return <h1> Hello World from My Profile </h1>;
+  return (<h1> Hello World from My Profile </h1>);
 }
 
 export default MyProfile;
