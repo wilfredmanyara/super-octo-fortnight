@@ -9,7 +9,7 @@ import Alert from "../../common/Alert";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Container } from "@mui/material";
 import { Button } from "@mui/material";
-import HomesApi from '../../api/api'
+import HomesApi from "../../api/api";
 import { useHistory } from "react-router-dom";
 
 function Copyright(props) {
@@ -39,7 +39,10 @@ function UserAccount() {
 
   const [formErrors, setFormErrors] = useState([]);
   const [editUser, setEditUser] = useState(false);
-  const [formData, setFormData] = useState({...currentUser.user[0], password: ""})
+  const [formData, setFormData] = useState({
+    ...currentUser.user[0],
+    password: "",
+  });
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -47,21 +50,21 @@ function UserAccount() {
 
     let result = await callEditUser(formData);
     if (result.sucess) {
-      history.push('/dashboard')
+      history.push("/dashboard");
       // setCurrentUser(result.user)
     } else {
       console.log("Error logging in");
       setFormErrors(result.errors);
     }
-  }
+  };
 
   async function callEditUser(newData) {
     try {
       let result = await HomesApi.editUser(newData);
-      return { success: true, user: result }
+      return { success: true, user: result };
     } catch (errors) {
-      console.log("edit user failed", errors)
-      return { success: false, errors }
+      console.log("edit user failed", errors);
+      return { success: false, errors };
     }
   }
 
@@ -72,9 +75,9 @@ function UserAccount() {
 
   function handleChange(evt) {
     const { name, value } = evt.target;
-    setFormData(fdata => ({
+    setFormData((fdata) => ({
       ...fdata,
-      [name]: value
+      [name]: value,
     }));
   }
 
