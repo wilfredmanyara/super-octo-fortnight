@@ -7,6 +7,9 @@ middleware is run between the request / response cycle. </p>
 
 <p> Mongoose library is used to interact with the backend and provide object document modeling (equivalent to ORM in relational database). </p>
 
+<p> This project uses prettier to format the code prior to pushing. Please run 'npm run format' to format the code or
+configure your development environment to do so. </p>
+
 <p> This repo contains two folders: front-end & back-end. </p>
 
 <p> The Material UI templates can be found at: https://mui.com/getting-started/templates/ </p>
