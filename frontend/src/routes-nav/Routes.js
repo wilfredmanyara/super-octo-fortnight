@@ -8,6 +8,7 @@ import HomeContent from "../components/dashboard/HomeContent";
 import HomesList from "../components/homes/homesList";
 import UserAccount from "../components/account/UserAccount";
 import TrialSearch from "../components/trial-search/TrialSearch";
+import MyProfile from "../components/account/MyProfile";
 
 function Routes({ login, signup, logout }) {
   return (
@@ -36,6 +37,12 @@ function Routes({ login, signup, logout }) {
         <PrivateRoute exact path="/my-account">
           <Dashboard logout={logout}>
             <UserAccount />
+          </Dashboard>
+        </PrivateRoute>
+
+        <PrivateRoute exact path="/my-profile">
+          <Dashboard logout={logout}>
+            <MyProfile />
           </Dashboard>
         </PrivateRoute>
 
