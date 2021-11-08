@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "backend for hearth interview",
+  "description": "backend for full stack template",
   "main": "server.js",
   "scripts": {
     "test": "test",
@@ -11,11 +11,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DataDeveloper7865/hearth.git"
+    "url": "git+https://github.com/DataDeveloper7865/full-stack-app-template"
   },
   "keywords": [
     "git",
-    "hearth",
     "frontend",
     "backend",
     "redfin"
@@ -23,9 +22,9 @@
   "author": "Stephen Whelan",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DataDeveloper7865/hearth/issues"
+    "url": "https://github.com/DataDeveloper7865/full-stack-app-template"
   },
-  "homepage": "https://github.com/DataDeveloper7865/hearth#readme",
+  "homepage": "https://github.com/DataDeveloper7865/full-stack-app-template#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "colors": "^1.4.0",
