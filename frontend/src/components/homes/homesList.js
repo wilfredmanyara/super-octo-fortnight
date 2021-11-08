@@ -19,7 +19,7 @@ function Copyright(props) {
     >
       {"Copyright © "}
       <Link color="inherit" href="https://material-ui.com/">
-        Hearth
+        Full-Stack Template
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
