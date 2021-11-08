@@ -1,4 +1,4 @@
-"# hearth" 
+"# Full Stack Application" 
 
 <h1> About </h1>
 
