@@ -14,6 +14,7 @@ React Docs can be found at: https://reactjs.org/docs/getting-started.html
 Node.js can be downloaded at: https://nodejs.org/en/download/
 Express.js docs can be found at: https://expressjs.com/
 MongoDB can be downloaded at: https://www.mongodb.com/try/download/community
+Mongoose ODM documentation be be viewed at: https://mongoosejs.com/
 
 <h3> Backend Routes </h3>
 
