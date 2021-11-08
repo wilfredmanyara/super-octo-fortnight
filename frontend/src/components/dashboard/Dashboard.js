@@ -99,7 +99,7 @@ function DashboardContent({ logout, children }) {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-              Hearth Dashboard
+              App Dashboard
             </Typography>
             <UserProfileMenu logout={logout} />
           </Toolbar>
