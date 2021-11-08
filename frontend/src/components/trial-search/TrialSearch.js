@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Grid, Typography } from "@mui/material";
 import Link from "@mui/material/Link";
 import LoadingSpinner from "../../common/LoadingSpinner";
@@ -6,25 +6,25 @@ import { Container } from "@mui/material";
 import { Paper } from "@mui/material";
 import Title from "../../common/Title";
 import Input from "@mui/material/Input";
-import HomeCard from "../homes/homeCard"
+import HomeCard from "../homes/homeCard";
 
 function Copyright(props) {
-    return (
-      <Typography
-        variant="body2"
-        color="text.secondary"
-        align="center"
-        {...props}
-      >
-        {"Copyright © "}
-        <Link color="inherit" href="https://material-ui.com/">
-          Full-Stack App Template
-        </Link>{" "}
-        {new Date().getFullYear()}
-        {"."}
-      </Typography>
-    );
-  }
+  return (
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
+      {"Copyright © "}
+      <Link color="inherit" href="https://material-ui.com/">
+        Full-Stack App Template
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
+  );
+}
 
 function TrialSearch() {
   const [trialData, setTrialData] = useState([]);
@@ -35,7 +35,6 @@ function TrialSearch() {
   React.useEffect(function loadTrialData() {
     async function getTrialData() {
       try {
-
       } catch (err) {
         console.log("error fetching data: ", err);
       }
@@ -53,8 +52,8 @@ function TrialSearch() {
 
   if (!infoLoaded) return <LoadingSpinner />;
 
-    return (
-      <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+  return (
+    <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
       <Grid container spacing={3}>
         <Grid item xs={12} md={12} lg={12}>
           <Paper
@@ -128,7 +127,7 @@ function TrialSearch() {
       </Grid>
       <Copyright sx={{ pt: 4 }} />
     </Container>
-    )
+  );
 }
 
 export default TrialSearch;
