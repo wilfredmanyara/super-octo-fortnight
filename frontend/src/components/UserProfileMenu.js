@@ -42,6 +42,11 @@ export default function UserProfileMenu({ logout }) {
     history.push("/my-account");
   }
 
+  function handleMyProfileRedirect(event) {
+    event.preventDefault();
+    history.push("/my-profile")
+  }
+
   // return focus to the button when we transitioned from !open -> open
   const prevOpen = React.useRef(open);
   React.useEffect(() => {
@@ -91,7 +96,7 @@ export default function UserProfileMenu({ logout }) {
                     aria-labelledby="composition-button"
                     onKeyDown={handleListKeyDown}
                   >
-                    <MenuItem onClick={handleClose}>Profile</MenuItem>
+                    <MenuItem onClick={handleMyProfileRedirect}>Profile</MenuItem>
                     <MenuItem onClick={handleAccountRedirect}>
                       My account
                     </MenuItem>
